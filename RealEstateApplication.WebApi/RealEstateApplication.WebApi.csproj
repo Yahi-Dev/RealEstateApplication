@@ -30,8 +30,4 @@
     <ProjectReference Include="..\RealEstateApplication.Persistence\RealEstateApplication.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\V1\" />
-  </ItemGroup>
-
 </Project>

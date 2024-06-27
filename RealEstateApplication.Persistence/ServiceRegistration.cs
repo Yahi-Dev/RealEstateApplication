@@ -34,7 +34,7 @@ namespace RealEstateApplication.Persistence
             services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             //services.AddTransient<ITypeOfRealEstateRepository, TypeOfRealEstateRepositoy>();
             //services.AddTransient<ITypeOfSaleRepository, TypeOfSaleRepository>();
-            //services.AddTransient<IImprovementRepository, ImprovementRepository>();
+            services.AddTransient<IImprovementRepository, ImprovementRepository>();
             //services.AddTransient<IRealEstateRepository, RealEstateRepository>();
             //services.AddTransient<IRealEstateImprovementRepository, RealEstateImprovemnetRepository>();
             //services.AddTransient<IRealEstateImageRepository, RealEstateImageRepository>();
