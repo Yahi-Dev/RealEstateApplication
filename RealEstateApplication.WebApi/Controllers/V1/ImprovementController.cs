@@ -31,7 +31,6 @@ namespace RealEstateApplication.WebApi.Controllers.V1
             var response = await Mediator.Send(command);
             return StatusCode(StatusCodes.Status201Created, "Mejora creada correctamente");
         }
-
         [Authorize(Roles = "Admin")]
         [HttpGet]
         [SwaggerOperation(
@@ -43,6 +42,56 @@ namespace RealEstateApplication.WebApi.Controllers.V1
         public async Task<IActionResult> Get()
         {
             return Ok(await Mediator.Send(new GetAllImprovementsQuery()));
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpGet("{id}")]
+        [SwaggerOperation(
+            Summary = "Mejora por id",
+            Description = "Obtiene una mejora filtrada por su id")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GetById(int id)
+        {
+            return Ok(await Mediator.Send(new GetImprovementByIdQuery { Id = id }));
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut("{id}")]
+        [SwaggerOperation(
+            Summary = "Actualizacion de una mejora",
+            Description = "Recibe los paramentros necesarios para modificar una mejora existente")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Put(UpdateImprovementCommand command, int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Debe enviar los datos correctamente");
+            }
+            if (command.Id != id)
+            {
+                return BadRequest("Debe enviar los datos correctamente");
+            }
+            await Mediator.Send(command);
+            return NoContent();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("{id}")]
+        [SwaggerOperation(
+            Summary = "Eliminar una mejorar",
+            Description = "Recibe los parametros necesarios para eliminar una mejora existente")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await Mediator.Send(new DeleteImprovementByIdCommand { Id = id });
+            return NoContent();
         }
     }
 }
