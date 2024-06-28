@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RealEstateApp.Core.Domain.Entities;
+using RealEstateApp.Infraestructure.Persistence.EntityConfigurations;
 using RealEstateApplication.Domain.Common;
 using RealEstateApplication.Domain.Entities;
 using RealEstateApplication.Persistence.EntityConfiguration;
@@ -29,11 +31,12 @@ namespace RealEstateApplication.Persistence.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ImprovementConfiguration());
+            modelBuilder.ApplyConfiguration(new TypeOfSaleConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Improvement> Improvements { get; set; }
-
+        public DbSet<TypeOfSale> TypeOfSales { get; set; }
 
     }
 }
