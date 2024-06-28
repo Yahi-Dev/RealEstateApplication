@@ -1,8 +1,9 @@
-﻿using RealEstateApp.Core.Application.Interfaces.Repositories;
-using RealEstateApp.Core.Domain.Entities;
-using RealEstateApp.Infraestructure.Persistence.Context;
+﻿using RealEstateApp.Infraestructure.Persistence.Repositories;
+using RealEstateApplication.Core.Application.Interfaces.Repositories;
+using RealEstateApplication.Core.Domain.Entities;
+using RealEstateApplication.Persistence.Context;
 
-namespace RealEstateApp.Infraestructure.Persistence.Repositories
+namespace RealEstateApplication.Infraestructure.Persistence.Repositories
 {
     public class TypeOfSaleRepository : GenericRepository<TypeOfSale>,ITypeOfSaleRepository
     {

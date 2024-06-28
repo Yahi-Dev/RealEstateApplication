@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using RealEstateApp.Infraestructure.Identity.Services;
+using RealEstateApplication.Infraestructure.Identity.Services;
 using RealEstateApplication.Application.Interfaces.Services;
 using RealEstateApplication.Application.Wrappers;
 using RealEstateApplication.Domain.Settings;

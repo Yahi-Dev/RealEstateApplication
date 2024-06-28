@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RealEstateApp.Core.Application.Dtos.API.TypeOfSale;
-using RealEstateApp.Core.Application.Features.TypeOfSales.Command.CreateTypeOfSale;
-using RealEstateApp.Core.Application.Features.TypeOfSales.Command.DeleteTypeOfSaleById;
-using RealEstateApp.Core.Application.Features.TypeOfSales.Command.UpdateTypeOfSale;
-using RealEstateApp.Core.Application.Features.TypeOfSales.Queries.GetAllTypeOfSale;
-using RealEstateApp.Core.Application.Features.TypeOfSales.Queries.GetAllTypeOfSaleById;
+using RealEstateApplication.Core.Application.Dtos.API.TypeOfSale;
+using RealEstateApplication.Core.Application.Features.TypeOfSales.Command.CreateTypeOfSale;
+using RealEstateApplication.Core.Application.Features.TypeOfSales.Command.DeleteTypeOfSaleById;
+using RealEstateApplication.Core.Application.Features.TypeOfSales.Command.UpdateTypeOfSale;
+using RealEstateApplication.Core.Application.Features.TypeOfSales.Queries.GetAllTypeOfSale;
+using RealEstateApplication.Core.Application.Features.TypeOfSales.Queries.GetAllTypeOfSaleById;
 using RealEstateApplication.WebApi.Controllers;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
 
-namespace RealEstateApp.Presentation.WebAPI.Controllers.V1
+namespace RealEstateApplication.Presentation.WebAPI.Controllers.V1
 {
     [ApiVersion("1.0")]
     [SwaggerTag("Mantenimiento de tipos de ventas")]

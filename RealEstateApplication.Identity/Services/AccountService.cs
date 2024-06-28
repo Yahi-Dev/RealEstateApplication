@@ -12,7 +12,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace RealEstateApp.Infraestructure.Identity.Services
+namespace RealEstateApplication.Infraestructure.Identity.Services
 {
     public class AccountService : IAccountService
     {

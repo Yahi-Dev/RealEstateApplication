@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using RealEstateApp.Core.Application.Dtos.API.Improvement;
-using RealEstateApp.Core.Application.Dtos.API.TypeOfSale;
-using RealEstateApp.Core.Application.Features.TypeOfSales.Command.CreateTypeOfSale;
-using RealEstateApp.Core.Application.Features.TypeOfSales.Command.UpdateTypeOfSale;
-using RealEstateApp.Core.Application.ViewModel.Improvement;
-using RealEstateApp.Core.Application.ViewModel.TypeOfSale;
-using RealEstateApp.Core.Domain.Entities;
+using RealEstateApplication.Core.Application.Dtos.API.Improvement;
+using RealEstateApplication.Core.Application.Dtos.API.TypeOfSale;
+using RealEstateApplication.Core.Application.Features.TypeOfSales.Command.CreateTypeOfSale;
+using RealEstateApplication.Core.Application.Features.TypeOfSales.Command.UpdateTypeOfSale;
+using RealEstateApplication.Application.ViewModel.Improvement;
+using RealEstateApplication.Core.Application.ViewModel.TypeOfSale;
+using RealEstateApplication.Core.Domain.Entities;
 
-namespace RealEstateApp.Core.Application.Mappings
+namespace RealEstateApplication.Core.Application.Mappings
 {
     public class TypeOfSaleProfile:Profile
     {

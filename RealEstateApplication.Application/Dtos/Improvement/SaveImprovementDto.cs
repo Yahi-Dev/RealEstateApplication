@@ -2,7 +2,7 @@
 
 using System.Text.Json.Serialization;
 
-namespace RealEstateApp.Core.Application.Dtos.API.Improvement
+namespace RealEstateApplication.Core.Application.Dtos.API.Improvement
 {
     public class SaveImprovementDto
     {

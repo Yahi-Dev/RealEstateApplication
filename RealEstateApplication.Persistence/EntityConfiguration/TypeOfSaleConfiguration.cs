@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using RealEstateApp.Core.Domain.Entities;
+using RealEstateApplication.Core.Domain.Entities;
 
-namespace RealEstateApp.Infraestructure.Persistence.EntityConfigurations
+namespace RealEstateApplication.Infraestructure.Persistence.EntityConfigurations
 {
     public class TypeOfSaleConfiguration : IEntityTypeConfiguration<TypeOfSale>
     {

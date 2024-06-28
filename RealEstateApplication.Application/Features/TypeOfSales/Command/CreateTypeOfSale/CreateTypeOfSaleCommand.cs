@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
-using RealEstateApp.Core.Application.Interfaces.Repositories;
-using RealEstateApp.Core.Domain.Entities;
+using RealEstateApplication.Core.Application.Interfaces.Repositories;
+using RealEstateApplication.Core.Domain.Entities;
 using RealEstateApplication.Application.Wrappers;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace RealEstateApp.Core.Application.Features.TypeOfSales.Command.CreateTypeOfSale
+namespace RealEstateApplication.Core.Application.Features.TypeOfSales.Command.CreateTypeOfSale
 {
     /// <summary>
     /// Parametros para crear un tipo de venta

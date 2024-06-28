@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateApp.Core.Application.ViewModel.TypeOfSale
+namespace RealEstateApplication.Core.Application.ViewModel.TypeOfSale
 {
     public class SaveTypeOfSaleViewModel
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using RealEstateApplication.Application.Enums;
 
-namespace RealEstateApp.Infraestructure.Identity.Seeds
+namespace RealEstateApplication.Infraestructure.Identity.Seeds
 {
     public static class DefaultRoles
     {

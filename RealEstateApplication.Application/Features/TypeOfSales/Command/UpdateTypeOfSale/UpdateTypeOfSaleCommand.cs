@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using MediatR;
-using RealEstateApp.Core.Application.Interfaces.Repositories;
-using RealEstateApp.Core.Domain.Entities;
+using RealEstateApplication.Core.Application.Interfaces.Repositories;
+using RealEstateApplication.Core.Domain.Entities;
 using RealEstateApplication.Application.Exceptions;
 using RealEstateApplication.Application.Wrappers;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
-namespace RealEstateApp.Core.Application.Features.TypeOfSales.Command.UpdateTypeOfSale
+namespace RealEstateApplication.Core.Application.Features.TypeOfSales.Command.UpdateTypeOfSale
 {
     /// <summary>
     /// Parametros para modificar un tipo de venta

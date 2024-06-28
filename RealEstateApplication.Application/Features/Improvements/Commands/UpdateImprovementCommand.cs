@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using RealEstateApp.Core.Application.Dtos.API.Improvement;
+using RealEstateApplication.Core.Application.Dtos.API.Improvement;
 using RealEstateApplication.Application.Exceptions;
 using RealEstateApplication.Application.Interfaces.Repositories;
 using RealEstateApplication.Application.Wrappers;
