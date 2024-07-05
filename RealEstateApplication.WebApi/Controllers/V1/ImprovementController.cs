@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RealEstateApplication.Application.Exceptions;
 using RealEstateApplication.Application.Features.Improvements.Commands;
 using RealEstateApplication.Application.Features.Improvements.Queries;
 using Swashbuckle.AspNetCore.Annotations;
@@ -20,7 +21,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
             Summary = "Creacion de una mejora",
             Description = "Recibe los parametros que necesita para crear una mejora")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateImprovementCommand))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiException))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Post(CreateImprovementCommand command)
         {
