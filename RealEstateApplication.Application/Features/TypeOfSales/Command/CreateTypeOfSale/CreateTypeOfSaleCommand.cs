@@ -12,7 +12,7 @@ namespace RealEstateApp.Core.Application.Features.TypeOfSales.Command.CreateType
     /// </summary>
     public class CreateTypeOfSaleCommand : IRequest<Response<int>>
     {
-        
+
         [SwaggerParameter(Description = "El nombre del tipo de venta que desea crear")]
         public string Name { get; set; } = null!;
         [SwaggerParameter(Description = "Una descripcion del tipo de venta que desea crear")]
