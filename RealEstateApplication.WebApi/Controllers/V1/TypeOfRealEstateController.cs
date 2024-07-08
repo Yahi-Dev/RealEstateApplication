@@ -54,7 +54,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await Mediator.Send(new GetTypeOfRealEstateByIdQuery { Id = id }));
+            return Ok(await mediator.Send(new GetTypeOfRealEstateByIdQuery { Id = id }));
         }
 
         [Authorize(Roles = "Admin")]
