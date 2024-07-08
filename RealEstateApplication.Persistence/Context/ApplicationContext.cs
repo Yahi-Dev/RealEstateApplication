@@ -32,11 +32,13 @@ namespace RealEstateApplication.Persistence.Context
         {
             modelBuilder.ApplyConfiguration(new ImprovementConfiguration());
             modelBuilder.ApplyConfiguration(new TypeOfSaleConfiguration());
+            modelBuilder.ApplyConfiguration(new TypeOfRealEstateConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Improvement> Improvements { get; set; }
         public DbSet<TypeOfSale> TypeOfSales { get; set; }
+        public DbSet<TypeOfRealEstate> typeOfRealEstates { get; set; }
 
     }
 }

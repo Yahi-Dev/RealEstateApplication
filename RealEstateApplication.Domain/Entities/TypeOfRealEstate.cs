@@ -1,6 +1,9 @@
-﻿namespace RealEstateApplication.Domain.Entities
+﻿using RealEstateApplication.Domain.Common;
+
+namespace RealEstateApplication.Domain.Entities
 {
-    internal class TypeOfRealEstate
+    public class TypeOfRealEstate : BaseEntity
     {
+        public string Name { get; set; }
     }
 }

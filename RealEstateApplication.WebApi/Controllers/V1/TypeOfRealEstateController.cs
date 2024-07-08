@@ -1,50 +1,50 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RealEstateApplication.Application.Exceptions;
 using RealEstateApplication.Application.Features.Improvements.Commands;
 using RealEstateApplication.Application.Features.Improvements.Queries;
+using RealEstateApplication.Application.Features.TypeOfRealEstates.Commands;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
 
 namespace RealEstateApplication.WebApi.Controllers.V1
 {
     [ApiVersion("1.0")]
-    [SwaggerTag("Mantenimiento de Mejoras")]
-    public class ImprovementController(IMediator mediator) : BaseApiController
+    [SwaggerTag("Mantenimiento de Tipos de propiedades ")]
+    public class TypeOfRealEstateController(IMediator mediator) : BaseApiController
     {
-
         [Authorize(Roles = "Admin")]
-        [Consumes(MediaTypeNames.Application.Json)]
         [HttpPost]
+        [Consumes(MediaTypeNames.Application.Json)]
         [SwaggerOperation(
-            Summary = "Creacion de una mejora",
-            Description = "Recibe los parametros que necesita para crear una mejora")]
+            Summary = "Creacion de un tipo de propiedades",
+            Description = "Recibe los parametros que necesita para crear un tipo de propiedad")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Post(CreateImprovementCommand command)
+        public async Task<IActionResult> Post(CreateTypeOfRealEstateCommand command)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest("Debe enviar los datos correctamente");
             }
             var response = await mediator.Send(command);
-            return StatusCode(StatusCodes.Status201Created, "Mejora creada correctamente");
+            return StatusCode(StatusCodes.Status201Created, "Tipo de propiedad creada correctamente");
         }
         [Authorize(Roles = "Admin")]
         [HttpGet]
         [SwaggerOperation(
-           Summary = "Listado de mejoras",
-           Description = "Obtiene el listado de todas las mejoras creadas")]
+           Summary = "Listado de tipos de propiedades",
+           Description = "Obtiene el listado de todos los tipos de propiedades creados")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get()
         {
-            return Ok(await mediator.Send(new GetAllImprovementsQuery()));
+            return Ok(await mediator.Send(new GetAllTypeOfRealEstateQuery()));
         }
         [Authorize(Roles = "Admin")]
-        [Consumes(MediaTypeNames.Application.Json)]
         [HttpGet("{id}")]
         [SwaggerOperation(
             Summary = "Mejora por id",
@@ -54,7 +54,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await mediator.Send(new GetImprovementByIdQuery { Id = id }));
+            return Ok(await Mediator.Send(new GetTypeOfRealEstateByIdQuery { Id = id }));
         }
 
         [Authorize(Roles = "Admin")]
@@ -66,13 +66,9 @@ namespace RealEstateApplication.WebApi.Controllers.V1
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Put(UpdateImprovementCommand command, int id)
+        public async Task<IActionResult> Put(UpdateTypeOfRealEstateCommand command)
         {
             if (!ModelState.IsValid)
-            {
-                return BadRequest("Debe enviar los datos correctamente");
-            }
-            if (command.Id != id)
             {
                 return BadRequest("Debe enviar los datos correctamente");
             }
@@ -91,7 +87,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
 
         public async Task<IActionResult> Delete(int id)
         {
-            await mediator.Send(new DeleteImprovementCommand { Id = id });
+            await mediator.Send(new DeleteTypeOfRealEstatetCommand { Id = id });
             return NoContent();
         }
     }
