@@ -1,4 +1,4 @@
-﻿namespace RealEstateApplication.Core.Application.Dtos.API.Improvement
+﻿namespace RealEstateApplication.Application.Dtos.API.Improvement
 {
     public class ImprovementDto
     {

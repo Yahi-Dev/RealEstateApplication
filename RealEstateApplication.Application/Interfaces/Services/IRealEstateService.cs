@@ -1,5 +1,5 @@
 ﻿using RealEstateApplication.Application.ViewModel.RealEstate;
-using RealEstateApplication.Core.Application.Interfaces.Services;
+using RealEstateApplication.Application.Interfaces.Services;
 using RealEstateApplication.Domain.Entities;
 
 namespace RealEstateApplication.Application.Interfaces.Services

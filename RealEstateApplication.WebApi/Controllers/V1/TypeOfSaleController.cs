@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RealEstateApplication.Core.Application.Dtos.API.TypeOfSale;
-using RealEstateApplication.Core.Application.Features.TypeOfSales.Command.CreateTypeOfSale;
-using RealEstateApplication.Core.Application.Features.TypeOfSales.Command.DeleteTypeOfSaleById;
-using RealEstateApplication.Core.Application.Features.TypeOfSales.Command.UpdateTypeOfSale;
-using RealEstateApplication.Core.Application.Features.TypeOfSales.Queries.GetAllTypeOfSale;
-using RealEstateApplication.Core.Application.Features.TypeOfSales.Queries.GetAllTypeOfSaleById;
+using RealEstateApplication.Application.Dtos.API.TypeOfSale;
+using RealEstateApplication.Application.Features.TypeOfSales.Command.CreateTypeOfSale;
+using RealEstateApplication.Application.Features.TypeOfSales.Command.DeleteTypeOfSaleById;
+using RealEstateApplication.Application.Features.TypeOfSales.Command.UpdateTypeOfSale;
+using RealEstateApplication.Application.Features.TypeOfSales.Queries.GetAllTypeOfSale;
+using RealEstateApplication.Application.Features.TypeOfSales.Queries.GetAllTypeOfSaleById;
 using RealEstateApplication.WebApi.Controllers;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;

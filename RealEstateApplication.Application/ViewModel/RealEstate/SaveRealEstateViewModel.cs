@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using RealEstateApplication.Application.ViewModel.Improvement;
 using RealEstateApplication.Application.ViewModel.TypeOfRealState;
-using RealEstateApplication.Core.Application.ViewModel.TypeOfSale;
+using RealEstateApplication.Application.ViewModel.TypeOfSale;
 using System.ComponentModel.DataAnnotations;
 
 namespace RealEstateApplication.Application.ViewModel.RealEstate

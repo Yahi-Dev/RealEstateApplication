@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
-using RealEstateApplication.Core.Application.Dtos.API.TypeOfSale;
-using RealEstateApplication.Core.Application.Interfaces.Repositories;
+using RealEstateApplication.Application.Dtos.API.TypeOfSale;
+using RealEstateApplication.Application.Interfaces.Repositories;
 using RealEstateApplication.Application.Exceptions;
 using RealEstateApplication.Application.Wrappers;
 using System.Net;
 
-namespace RealEstateApplication.Core.Application.Features.TypeOfSales.Queries.GetAllTypeOfSale
+namespace RealEstateApplication.Application.Features.TypeOfSales.Queries.GetAllTypeOfSale
 {
     public class GetAllTypeOfSaleQuery : IRequest<Response<IEnumerable<TypeOfSaleDto>>>
     {

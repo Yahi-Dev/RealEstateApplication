@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using RealEstateApplication.Application.Dtos.User;
@@ -212,5 +213,63 @@ namespace RealEstateApplication.Infraestructure.Identity.Services
 
             return BitConverter.ToString(ramdomBytes).Replace("-", "");
         }
+
+        #region Gets
+        public async Task<AuthenticationResponse> GetUserByIdAsync(string id)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var userResponse = new AuthenticationResponse()
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                UserName = user.UserName,
+                Email = user.Email,
+                Phone = user.PhoneNumber,
+                IdentityCard = user.IdentityCard,
+                ImageUser = user.ImageUser,
+                CountRealEstate = user.CountOfRealEstate,
+                Roles = _userManager.GetRolesAsync(user).Result.ToList(),
+                IsVerified = user.EmailConfirmed,
+                IsActive = user.IsActive,
+
+            };
+            return userResponse;
+        }
+        //Espera que le mandes un rol para poder buscar a todos los usuarios con ese rol.
+        public async Task<List<AuthenticationResponse>> GetAllAsync(string rol)
+        {
+            var users = await _userManager.Users.ToListAsync();
+
+            var usersResponse = users
+                .Where(u => _userManager.GetRolesAsync(u).Result.Contains(rol))
+                .Select(u => new AuthenticationResponse
+                {
+                    Id = u.Id,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Email = u.Email,
+                    UserName = u.UserName,
+                    IdentityCard = u.IdentityCard,
+                    Phone = u.PhoneNumber,
+                    ImageUser = u.ImageUser,
+                    CountRealEstate = u.CountOfRealEstate,
+                    Roles = _userManager.GetRolesAsync(u).Result.ToList(),
+                    IsActive = u.IsActive,
+                }).OrderByDescending(x => x.Id).ToList();
+
+            return usersResponse;
+        }
+
+        public async Task<int> CountUser(bool status, string rol)
+        {
+
+            var users = await _userManager.Users.Where(u => u.IsActive == status).ToListAsync();
+            var count = users.Where(u => _userManager.GetRolesAsync(u).Result.Contains(rol)).Count();
+
+            return count;
+        }
+        #endregion
+
     }
 }

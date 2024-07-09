@@ -1,5 +1,5 @@
 ﻿using RealEstateApplication.Domain.Entities;
-using RealEstateApplication.Core.Domain.Entities;
+using RealEstateApplication.Domain.Entities;
 using RealEstateApplication.Domain.Common;
 
 namespace RealEstateApplication.Domain.Entities

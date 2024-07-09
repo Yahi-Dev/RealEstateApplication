@@ -1,11 +1,11 @@
 ﻿using MediatR;
-using RealEstateApplication.Core.Application.Interfaces.Repositories;
-using RealEstateApplication.Core.Domain.Entities;
+using RealEstateApplication.Application.Interfaces.Repositories;
+using RealEstateApplication.Domain.Entities;
 using RealEstateApplication.Application.Exceptions;
 using RealEstateApplication.Application.Wrappers;
 using System.Net;
 
-namespace RealEstateApplication.Core.Application.Features.TypeOfSales.Command.DeleteTypeOfSaleById
+namespace RealEstateApplication.Application.Features.TypeOfSales.Command.DeleteTypeOfSaleById
 {
     public class DeleteTypeOfSaleByIdCommand:IRequest <Response<Unit>>
     {

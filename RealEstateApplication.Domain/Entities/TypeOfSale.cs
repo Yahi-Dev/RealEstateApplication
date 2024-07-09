@@ -1,6 +1,6 @@
 ﻿using RealEstateApplication.Domain.Common;
 
-namespace RealEstateApplication.Core.Domain.Entities
+namespace RealEstateApplication.Domain.Entities
 {
     public class TypeOfSale:BaseEntity
     {

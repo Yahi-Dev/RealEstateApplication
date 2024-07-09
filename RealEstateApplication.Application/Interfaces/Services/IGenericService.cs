@@ -1,5 +1,5 @@
 ﻿
-namespace RealEstateApplication.Core.Application.Interfaces.Services
+namespace RealEstateApplication.Application.Interfaces.Services
 {
     public interface IGenericService<Model, SaveViewModel, ViewModel>
        where Model : class

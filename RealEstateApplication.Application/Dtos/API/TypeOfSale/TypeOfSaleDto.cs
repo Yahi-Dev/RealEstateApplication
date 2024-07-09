@@ -1,4 +1,4 @@
-﻿namespace RealEstateApplication.Core.Application.Dtos.API.TypeOfSale
+﻿namespace RealEstateApplication.Application.Dtos.API.TypeOfSale
 {
     public class TypeOfSaleDto
     {
