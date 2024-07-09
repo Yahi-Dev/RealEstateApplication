@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RealEstateApp.Core.Domain.Entities;
-using RealEstateApp.Infraestructure.Persistence.EntityConfigurations;
+using RealEstateApplication.Domain.Entities;
+using RealEstateApplication.Infraestructure.Persistence.EntityConfigurations;
 using RealEstateApplication.Domain.Common;
 using RealEstateApplication.Domain.Entities;
 using RealEstateApplication.Persistence.EntityConfiguration;

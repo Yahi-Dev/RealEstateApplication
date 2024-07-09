@@ -10,5 +10,10 @@ namespace RealEstateApplication.Application.Interfaces.Services
         Task SignOutAsync();
 
         #endregion
+
+        #region Gets
+        Task<List<AuthenticationResponse>> GetAllAsync(string entity);
+        Task<AuthenticationResponse> GetUserByIdAsync(string id);
+        #endregion
     }
 }

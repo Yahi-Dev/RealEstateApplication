@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 
-namespace RealEstateApp.Presentation.WebAPI.Extensions
+namespace RealEstateApplication.Presentation.WebAPI.Extensions
 {
     public static class ServiceExtension
     {
