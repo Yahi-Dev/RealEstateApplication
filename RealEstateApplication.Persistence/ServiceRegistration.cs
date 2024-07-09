@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RealEstateApp.Core.Application.Interfaces.Repositories;
 using RealEstateApp.Infraestructure.Persistence.Repositories;
 using RealEstateApplication.Application.Interfaces.Repositories;
 using RealEstateApp.Infraestructure.Persistence.Repositories;

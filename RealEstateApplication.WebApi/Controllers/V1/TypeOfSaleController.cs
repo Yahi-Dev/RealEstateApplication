@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RealEstateApp.Core.Application.Features.TypeOfSales.Command.DeleteTypeOfSaleById;
 using RealEstateApplication.Application.Dtos.API.TypeOfSale;
 using RealEstateApplication.Application.Features.TypeOfSales.Command.CreateTypeOfSale;
-using RealEstateApplication.Application.Features.TypeOfSales.Command.DeleteTypeOfSaleById;
 using RealEstateApplication.Application.Features.TypeOfSales.Command.UpdateTypeOfSale;
 using RealEstateApplication.Application.Features.TypeOfSales.Queries.GetAllTypeOfSale;
 using RealEstateApplication.Application.Features.TypeOfSales.Queries.GetAllTypeOfSaleById;
