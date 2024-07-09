@@ -1,5 +1,5 @@
-﻿using RealEstateApp.Core.Application.Interfaces.Repositories;
-using RealEstateApp.Core.Domain.Entities;
+﻿using RealEstateApplication.Application.Interfaces.Repositories;
+using RealEstateApplication.Domain.Entities;
 using RealEstateApplication.Persistence.Context;
 using RealEstateApplication.Persistence.Respositories;
 
