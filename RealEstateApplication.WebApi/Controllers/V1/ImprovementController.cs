@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RealEstateApplication.Application.Features.Improvements.Commands;
 using RealEstateApplication.Application.Features.Improvements.Queries;
@@ -10,16 +10,16 @@ namespace RealEstateApplication.WebApi.Controllers.V1
 {
     [ApiVersion("1.0")]
     [SwaggerTag("Mantenimiento de Mejoras")]
-    public class ImprovementController : BaseApiController
+    public class ImprovementController(IMediator mediator) : BaseApiController
     {
 
         [Authorize(Roles = "Admin")]
-        [HttpPost]
         [Consumes(MediaTypeNames.Application.Json)]
+        [HttpPost]
         [SwaggerOperation(
             Summary = "Creacion de una mejora",
             Description = "Recibe los parametros que necesita para crear una mejora")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateImprovementCommand))]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Post(CreateImprovementCommand command)
@@ -28,7 +28,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
             {
                 return BadRequest("Debe enviar los datos correctamente");
             }
-            var response = await Mediator.Send(command);
+            var response = await mediator.Send(command);
             return StatusCode(StatusCodes.Status201Created, "Mejora creada correctamente");
         }
         [Authorize(Roles = "Admin")]
@@ -41,9 +41,10 @@ namespace RealEstateApplication.WebApi.Controllers.V1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get()
         {
-            return Ok(await Mediator.Send(new GetAllImprovementsQuery()));
+            return Ok(await mediator.Send(new GetAllImprovementsQuery()));
         }
         [Authorize(Roles = "Admin")]
+        [Consumes(MediaTypeNames.Application.Json)]
         [HttpGet("{id}")]
         [SwaggerOperation(
             Summary = "Mejora por id",
@@ -53,7 +54,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await Mediator.Send(new GetImprovementByIdQuery { Id = id }));
+            return Ok(await mediator.Send(new GetImprovementByIdQuery { Id = id }));
         }
 
         [Authorize(Roles = "Admin")]
@@ -75,7 +76,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
             {
                 return BadRequest("Debe enviar los datos correctamente");
             }
-            await Mediator.Send(command);
+            await mediator.Send(command);
             return NoContent();
         }
 
@@ -90,7 +91,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
 
         public async Task<IActionResult> Delete(int id)
         {
-            await Mediator.Send(new DeleteImprovementByIdCommand { Id = id });
+            await mediator.Send(new DeleteImprovementCommand { Id = id });
             return NoContent();
         }
     }

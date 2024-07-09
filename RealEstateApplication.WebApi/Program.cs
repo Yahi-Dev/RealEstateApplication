@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using RealEstateApp.Infraestructure.Identity.Seeds;
-using RealEstateApp.Presentation.WebAPI.Extensions;
+using RealEstateApplication.Infraestructure.Identity.Seeds;
+using RealEstateApplication.Presentation.WebAPI.Extensions;
 using RealEstateApplication.Data;
 using RealEstateApplication.Identity;
 using RealEstateApplication.Identity.Entities;
