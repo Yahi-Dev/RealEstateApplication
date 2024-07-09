@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using RealEstateApp.Core.Application.Dtos.API.Improvement;
 using RealEstateApplication.Application.Dtos.TypeOfRealEstate;
 using RealEstateApplication.Application.Exceptions;
 using RealEstateApplication.Application.Features.Improvements.Commands;
