@@ -3,7 +3,6 @@ using RealEstateApp.Core.Application.Dtos.API.Improvement;
 using RealEstateApp.Core.Application.Dtos.API.TypeOfSale;
 using RealEstateApp.Core.Application.Features.TypeOfSales.Command.CreateTypeOfSale;
 using RealEstateApp.Core.Application.Features.TypeOfSales.Command.UpdateTypeOfSale;
-using RealEstateApp.Core.Application.ViewModel.Improvement;
 using RealEstateApp.Core.Application.ViewModel.TypeOfSale;
 using RealEstateApp.Core.Domain.Entities;
 
