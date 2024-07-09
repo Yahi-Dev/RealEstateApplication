@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RealEstateApp.Core.Application.Dtos.API.TypeOfSale
+namespace RealEstateApplication.Application.Dtos.API.TypeOfSale
 {
     public class SaveTypeOfSaleDto
     {
