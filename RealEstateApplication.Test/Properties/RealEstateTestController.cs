@@ -1,16 +1,13 @@
-﻿
-using MediatR;
-using Microsoft.AspNetCore.Http;
+﻿using Moq;
+using RealEstateApplication.Application.Wrappers;
 using Microsoft.AspNetCore.Mvc;
-using Moq;
+using Microsoft.AspNetCore.Http;
+using MediatR;
 using RealEstateApp.Presentation.WebAPI.Controllers.V1;
 using RealEstateApplication.Application.Dtos.API.RealState;
-using RealEstateApplication.Application.Features.Improvements.Queries;
 using RealEstateApplication.Application.Features.RealState.Queries.GetAllRealState;
 using RealEstateApplication.Application.Features.RealState.Queries.GetRealStateByCode;
 using RealEstateApplication.Application.Features.RealState.Queries.GetRealStateById;
-using RealEstateApplication.Application.Wrappers;
-using RealEstateApplication.Domain.Entities;
 
 namespace RealEstateApplication.Test
 {
@@ -29,7 +26,7 @@ namespace RealEstateApplication.Test
         public async Task GetAll_ShouldReturnOkResultWithRealEstateList()
         {
             // Arrange
-            var realEstates = new Response<IEnumerable<RealEstateDto>>
+            var realEstates = new Response<List<RealEstateDto>>
             {
                 Succeeded = true,
                 Message = "",
@@ -46,7 +43,12 @@ namespace RealEstateApplication.Test
                         Size = 120,
                         Price = 250000,
                         Description = "Beautiful house",
-                        Address = "123 Main St"
+                        Address = "123 Main St",
+                        TypeOfSaleName = "Sale",
+                        TypeOfRealEstateName = "House",
+                        ImprovementName = new List<string> { "Pool", "Garage" },
+                        AgentName = "Agent 1",
+                        AgentEmail = "agent1@example.com"
                     },
                     new RealEstateDto
                     {
@@ -58,14 +60,18 @@ namespace RealEstateApplication.Test
                         Size = 200,
                         Price = 500000,
                         Description = "Luxurious villa",
-                        Address = "456 Oak St"
+                        Address = "456 Oak St",
+                        TypeOfSaleName = "Rent",
+                        TypeOfRealEstateName = "Villa",
+                        ImprovementName = new List<string> { "Garden", "Gym" },
+                        AgentName = "Agent 2",
+                        AgentEmail = "agent2@example.com"
                     }
                 }
             };
 
             _mediatorMock.Setup(m => m.Send(It.IsAny<GetAllRealEstateQuery>(), It.IsAny<CancellationToken>()))
                          .ReturnsAsync(realEstates);
-
 
             // Act
             var result = await _realEstateController.Get();
@@ -95,7 +101,12 @@ namespace RealEstateApplication.Test
                     Size = 120,
                     Price = 250000,
                     Description = "Beautiful house",
-                    Address = "123 Main St"
+                    Address = "123 Main St",
+                    TypeOfSaleName = "Sale",
+                    TypeOfRealEstateName = "House",
+                    ImprovementName = new List<string> { "Pool", "Garage" },
+                    AgentName = "Agent 1",
+                    AgentEmail = "agent1@example.com"
                 }
             };
 
@@ -153,7 +164,12 @@ namespace RealEstateApplication.Test
                     Size = 120,
                     Price = 250000,
                     Description = "Beautiful house",
-                    Address = "123 Main St"
+                    Address = "123 Main St",
+                    TypeOfSaleName = "Sale",
+                    TypeOfRealEstateName = "House",
+                    ImprovementName = new List<string> { "Pool", "Garage" },
+                    AgentName = "Agent 1",
+                    AgentEmail = "agent1@example.com"
                 }
             };
 

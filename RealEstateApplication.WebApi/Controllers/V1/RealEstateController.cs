@@ -12,8 +12,14 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace RealEstateApp.Presentation.WebAPI.Controllers.V1
 {
     [ApiVersion("1.0")]
-    public class RealEstateController(IMediator mediator) : BaseApiController
+    public class RealEstateController : BaseApiController
     {
+        private readonly IMediator _mediator;
+
+        public RealEstateController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         [Authorize(Roles = "Admin,Developer")]
         [HttpGet("GetAll")]
@@ -25,7 +31,8 @@ namespace RealEstateApp.Presentation.WebAPI.Controllers.V1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get()
         {
-            return Ok(await Mediator.Send(new GetAllRealEstateQuery()));
+            var result = await _mediator.Send(new GetAllRealEstateQuery());
+            return Ok(result);
         }
 
         [Authorize(Roles = "Admin,Developer")]
@@ -38,7 +45,7 @@ namespace RealEstateApp.Presentation.WebAPI.Controllers.V1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetById(GetRealEstateByIdQuery request)
         {
-            var ok = await Mediator.Send(new GetRealEstateByIdQuery { Id = request.Id });
+            var ok = await _mediator.Send(new GetRealEstateByIdQuery { Id = request.Id });
             if (!ok.Succeeded)
             {
                 return NoContent();
@@ -56,7 +63,12 @@ namespace RealEstateApp.Presentation.WebAPI.Controllers.V1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetByCode(GetRealEstateByCodeQuery request)
         {
-            return Ok(await Mediator.Send(new GetRealEstateByCodeQuery { Code = request.Code }));
+            var ok = await _mediator.Send(new GetRealEstateByCodeQuery { Code = request.Code });
+            if (!ok.Succeeded)
+            {
+                return NoContent();
+            }
+            return Ok(ok);
         }
     }
 }
