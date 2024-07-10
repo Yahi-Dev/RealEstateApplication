@@ -4,15 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using RealEstateApplication.Application.Dtos.TypeOfRealEstate;
 using RealEstateApplication.Application.Exceptions;
-using RealEstateApplication.Application.Features.Improvements.Commands;
 using RealEstateApplication.Application.Features.TypeOfRealEstates.Commands;
 using RealEstateApplication.Application.Wrappers;
 using RealEstateApplication.WebApi.Controllers.V1;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RealEstateApplication.Test
 {
@@ -46,6 +40,9 @@ namespace RealEstateApplication.Test
             var createdResult = Assert.IsType<ObjectResult>(result);
             Assert.Equal(StatusCodes.Status201Created, createdResult.StatusCode);
         }
+
+
+
         [Fact]
         public async Task CreateTypeOfRealEstate_ShouldReturnBadRequestForNameEmpty()
         {

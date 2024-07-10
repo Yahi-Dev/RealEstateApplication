@@ -9,12 +9,13 @@ using RealEstateApplication.Application.Features.TypeOfSales.Queries.GetAllTypeO
 using RealEstateApplication.WebApi.Controllers;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
+using MediatR;
 
 namespace RealEstateApplication.Presentation.WebAPI.Controllers.V1
 {
     [ApiVersion("1.0")]
     [SwaggerTag("Mantenimiento de tipos de ventas")]
-    public class TypeOfSaleController : BaseApiController
+    public class TypeOfSaleController(IMediator mediator) : BaseApiController
     {
         
         [Authorize(Roles = "Admin")]

@@ -14,6 +14,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
     [SwaggerTag("Mantenimiento de Tipos de propiedades ")]
     public class TypeOfRealEstateController(IMediator mediator) : BaseApiController
     {
+
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Consumes(MediaTypeNames.Application.Json)]
@@ -32,6 +33,11 @@ namespace RealEstateApplication.WebApi.Controllers.V1
             var response = await mediator.Send(command);
             return StatusCode(StatusCodes.Status201Created, "Tipo de propiedad creada correctamente");
         }
+
+
+
+
+
         [Authorize(Roles = "Admin")]
         [HttpGet]
         [SwaggerOperation(
