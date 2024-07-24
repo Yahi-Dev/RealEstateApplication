@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RealEstateApp.Infraestructure.Persistence.Repositories;
+using RealEstateApplication.Application.Interfaces.Repositories;
+using RealEstateApp.Infraestructure.Persistence.Repositories;
 using RealEstateApplication.Application.Interfaces.Repositories;
 using RealEstateApplication.Persistence.Context;
 using RealEstateApplication.Persistence.Respositories;
@@ -32,13 +35,13 @@ namespace RealEstateApplication.Persistence
 
             #region Repositories
             services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-            //services.AddTransient<ITypeOfRealEstateRepository, TypeOfRealEstateRepositoy>();
-            //services.AddTransient<ITypeOfSaleRepository, TypeOfSaleRepository>();
+            services.AddTransient<ITypeOfRealEstateRepository, TypeOfRealEstateRepository>();
+            services.AddTransient<ITypeOfSaleRepository, TypeOfSaleRepository>();
             services.AddTransient<IImprovementRepository, ImprovementRepository>();
-            //services.AddTransient<IRealEstateRepository, RealEstateRepository>();
-            //services.AddTransient<IRealEstateImprovementRepository, RealEstateImprovemnetRepository>();
+            services.AddTransient<IRealEstateRepository, RealEstateRepository>();
+            services.AddTransient<IRealEstateImprovementRepository, RealEstateImprovemnetRepository>();
             //services.AddTransient<IRealEstateImageRepository, RealEstateImageRepository>();
-            //services.AddTransient<IRealEstateClientRepository, RealEstateClientRepository>();
+            services.AddTransient<IRealEstateClientRepository, RealEstateClientRepository>();
             #endregion
         }
     }

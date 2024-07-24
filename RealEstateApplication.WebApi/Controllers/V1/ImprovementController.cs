@@ -14,12 +14,12 @@ namespace RealEstateApplication.WebApi.Controllers.V1
     {
 
         [Authorize(Roles = "Admin")]
-        [HttpPost]
         [Consumes(MediaTypeNames.Application.Json)]
+        [HttpPost]
         [SwaggerOperation(
             Summary = "Creacion de una mejora",
             Description = "Recibe los parametros que necesita para crear una mejora")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateImprovementCommand))]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Post(CreateImprovementCommand command)
@@ -44,6 +44,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
             return Ok(await mediator.Send(new GetAllImprovementsQuery()));
         }
         [Authorize(Roles = "Admin")]
+        [Consumes(MediaTypeNames.Application.Json)]
         [HttpGet("{id}")]
         [SwaggerOperation(
             Summary = "Mejora por id",
@@ -90,7 +91,7 @@ namespace RealEstateApplication.WebApi.Controllers.V1
 
         public async Task<IActionResult> Delete(int id)
         {
-            await mediator.Send(new DeleteImprovementByIdCommand { Id = id });
+            await mediator.Send(new DeleteImprovementCommand { Id = id });
             return NoContent();
         }
     }

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-namespace RealEstateApp.Infraestructure.Identity.Seeds
+namespace RealEstateApplication.Infraestructure.Identity.Seeds
 {
     public static class DefaultClientUser
     {
