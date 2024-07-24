@@ -4,7 +4,9 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- Development - QA - master
+- Development
+- QA
+- master
 
 pool:
   vmImage: ubuntu-latest
@@ -13,5 +15,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- script: dotnet restore
+  displayName: 'dotnet restore'
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- script: dotnet test --configuration $(buildConfiguration)
+  displayName: 'dotnet test $(buildConfiguration)'
